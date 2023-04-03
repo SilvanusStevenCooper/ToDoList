@@ -1,0 +1,33 @@
+<%- include('header') -%>
+
+<div class="box" id="heading">
+    <h1><%= listTitle %> ToDo List</h1>
+</div>
+
+<div class="box">
+    <% newListItem.forEach(function(item, index) { %>
+        <div class="item">
+            <span class="mainItem">
+                <input type="checkbox">
+                <%= item %>
+            </span>
+            <form class="item item1" action="/update" method="POST">
+                <input type="hidden" name="itemId" value="<%= item.id %>">
+                <input class="pHolder" type="text" name="updatedItem" placeholder="Updated item">
+                <button class="btn1" type="submit">+</button>
+            </form>
+            <form class="item item2" action="/delete" method="POST">
+                <input class="checkbox" type="checkbox" name="deleteItem">
+                <button class="btn2" type="submit">x</button>
+            </form>
+        </div>
+      <% }); %>
+      
+
+  <form class="item" action="/" method="POST">
+    <input class="input1" type="text" name="todo" placeholder="New item">
+    <button type="submit">&#x2713;</button>
+  </form>
+</div>
+
+<%- include('footer') -%>

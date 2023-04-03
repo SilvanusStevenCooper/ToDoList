@@ -1,0 +1,39 @@
+<!-- using ejs layout tag to give dynamic layouts to various web pages -->
+<%- include('header') -%>
+
+<div class="box" id="heading">
+     <!-- passing kindOfDay (which holds the day variable in the js file) to h1 element -->
+<h1><%= listTitle %> ToDo List</h1>
+</div>
+   
+<div class="box">
+    <!-- an unorder list (div) with a for loop that loops through the item array and outputs the most recent item to the screen -->
+
+    <%for(var i = 0; i < newListItem.length; i++){ %>
+        <div class="item">
+            <input type="checkbox">
+            <p> <%= newListItem[i] %> </p>
+        </div>
+    <% } %> 
+      
+
+    <!-- input form with a submit button -->
+<form class="item" action="/" method="post">
+    <input type="text" name="todo" placeholder="Add to Schedule" autocomplete="off">
+    <button type="submit" name="list" value=<%= listTitle %> >+</button>
+</form>
+
+</div>
+
+    
+<%- include('footer') -%>
+
+
+
+
+  <!--  if(kindOfDay === "Wednesday" || kindOfDay === "Sunday"){ 
+        <h1 style="color: blueviolet;">  kindOfDay  ToDo List </h1>
+     }else{ 
+        <h1 style="color:purple;"> kindOfDay  ToDo List </h1>
+    }  
+    -->

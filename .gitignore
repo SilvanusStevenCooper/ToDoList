@@ -1,0 +1,5 @@
+# node moodle
+node_modules
+
+# environment variables
+*.env
